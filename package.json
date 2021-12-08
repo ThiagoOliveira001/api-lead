@@ -1,0 +1,17 @@
+{
+  "name": "api-lead",
+  "version": "1.0.0",
+  "description": "Criacao de contas e contagem de visitantes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Thiago Silva de Oliveira",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^16.11.12",
+    "git-commit-msg-linter": "^3.2.8",
+    "typescript": "^4.5.2"
+  }
+}
