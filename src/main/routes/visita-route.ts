@@ -26,5 +26,26 @@ import { makeConsultaVisitaController } from '../factories/controllers/visita/co
  */
 export default (router: Router): any => {
   router.post('/visita/adicionar', adaptRoute(makeContadorVisitaController()))
+
+  /**
+  * @openapi
+  * /visita/consultar:
+  *   get:
+  *     tags:
+  *       - Visitas
+  *     summary: Consulta a quantidade de visitas
+  *     responses:
+  *       200:
+  *         description: Retorna o número de visitas
+  *         content:
+  *           application/json:
+  *             schema:
+  *               type: object
+  *               properties:
+  *                 visitas:
+  *                   type: integer
+  *       500:
+  *         $ref: '#/components/schemas/Http500'
+  */
   router.get('/visita/consultar', adaptRoute(makeConsultaVisitaController()))
 }
