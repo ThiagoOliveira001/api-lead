@@ -2,6 +2,7 @@
 import { adaptRoute } from '../adapters/express-route-adapter'
 import { makeContadorVisitaController } from '../factories/controllers/visita/contador-visita-controller-factory'
 import { Router } from 'express'
+import { makeConsultaVisitaController } from '../factories/controllers/visita/consulta-visita-controller-factory'
 
 /**
  * @openapi
@@ -25,4 +26,5 @@ import { Router } from 'express'
  */
 export default (router: Router): any => {
   router.post('/visita/adicionar', adaptRoute(makeContadorVisitaController()))
+  router.get('/visita/consultar', adaptRoute(makeConsultaVisitaController()))
 }
