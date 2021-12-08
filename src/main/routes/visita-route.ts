@@ -4,27 +4,27 @@ import { makeContadorVisitaController } from '../factories/controllers/visita/co
 import { Router } from 'express'
 import { makeConsultaVisitaController } from '../factories/controllers/visita/consulta-visita-controller-factory'
 
-/**
- * @openapi
- * /visita/adicionar:
- *   post:
- *     tags:
- *       - Visitas
- *     summary: Adiciona uma visita na contagem de visitas
- *     responses:
- *       200:
- *         description: Retorna o número de visitas
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 visitas:
- *                   type: integer
- *       500:
- *         $ref: '#/components/schemas/Http500'
- */
 export default (router: Router): any => {
+  /**
+  * @openapi
+  * /visita/adicionar:
+  *   post:
+  *     tags:
+  *       - Visitas
+  *     summary: Adiciona uma visita na contagem de visitas
+  *     responses:
+  *       200:
+  *         description: Retorna o número de visitas
+  *         content:
+  *           application/json:
+  *             schema:
+  *               type: object
+  *               properties:
+  *                 visitas:
+  *                   type: integer
+  *       500:
+  *         $ref: '#/components/schemas/Http500'
+  */
   router.post('/visita/adicionar', adaptRoute(makeContadorVisitaController()))
 
   /**
