@@ -1,13 +1,30 @@
+import { RegistroVisita } from '../../../domain/models/RegistroVisita'
 import { ContadorVisitaController } from './contador-visita'
+import { AdicionarVisita } from './contador-visita.protocols'
 
 interface SutTypes {
   sut: ContadorVisitaController
+  adicionarVisitaStub: AdicionarVisita
+}
+
+const makeAdicionarVisita = (): AdicionarVisita => {
+  class DbAdicionarVisita implements AdicionarVisita {
+    async adicionar (): Promise<RegistroVisita> {
+      return {
+        visitas: 1
+      }
+    }
+  }
+
+  return new DbAdicionarVisita()
 }
 
 const makeSut = (): SutTypes => {
-  const sut = new ContadorVisitaController()
+  const adicionarVisitaStub = makeAdicionarVisita()
+  const sut = new ContadorVisitaController(adicionarVisitaStub)
   return {
-    sut
+    sut,
+    adicionarVisitaStub
   }
 }
 
@@ -19,5 +36,15 @@ describe('ContadorVisita Controller', () => {
     const httpResponse = await sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(200)
     expect(httpResponse.body).toHaveProperty('visitas', expect.any(Number))
+  })
+
+  test('Deve ser chamada função adicionar do AdicionarVisita quando chamado', async () => {
+    const { sut, adicionarVisitaStub } = makeSut()
+    const adicionarSpy = jest.spyOn(adicionarVisitaStub, 'adicionar')
+    const httpRequest = {
+    }
+    await sut.handle(httpRequest)
+
+    expect(adicionarSpy).toHaveBeenCalled()
   })
 })
