@@ -11,7 +11,7 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: 'http://localhost:3000',
+      url: 'http://localhost:3000/api/v1',
       description: 'Local'
     }
   ],
@@ -51,11 +51,10 @@ const swaggerDefinition = {
   }
 }
 const options = {
-  apis: ['../routes/*.ts'],
+  apis: ['./src/main/routes/*route.ts'],
   swaggerDefinition
 }
 const specs = swaggerJsDocs(options)
-
 export default (app: Express): void => {
-  app.use('/docs', swaggerUI.serve, swaggerUI.setup(specs.default))
+  app.use('/api/v1/docs', swaggerUI.serve, swaggerUI.setup(specs))
 }

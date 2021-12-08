@@ -3,6 +3,26 @@ import { adaptRoute } from '../adapters/express-route-adapter'
 import { makeContadorVisitaController } from '../factories/controllers/visita/contador-visita-controller-factory'
 import { Router } from 'express'
 
+/**
+ * @openapi
+ * /visita/adicionar:
+ *   post:
+ *     tags:
+ *       - Visitas
+ *     summary: Adiciona uma visita na contagem de visitas
+ *     responses:
+ *       200:
+ *         description: Retorna o número de visitas
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 visitas:
+ *                   type: integer
+ *       500:
+ *         $ref: '#/components/schemas/Http500'
+ */
 export default (router: Router): any => {
   router.post('/visita/adicionar', adaptRoute(makeContadorVisitaController()))
 }
