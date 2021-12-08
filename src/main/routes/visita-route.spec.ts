@@ -10,4 +10,12 @@ describe('Visita route', () => {
         .expect(200)
     })
   })
+
+  describe('GET /consultar', () => {
+    test('Deve retornar 200 no consultar', async () => {
+      await request(app)
+        .get('/api/v1/visita/consultar')
+        .expect(200)
+    })
+  })
 })
