@@ -1,5 +1,5 @@
 import { Controller, HttpRequest, HttpResponse, AdicionarVisita } from './contador-visita.protocols'
-import { ok } from '../../helpers/http-helper'
+import { ok, serverError } from '../../helpers/http-helper'
 
 export class ContadorVisitaController implements Controller {
   private readonly adicionarVisita: AdicionarVisita
@@ -9,7 +9,11 @@ export class ContadorVisitaController implements Controller {
   }
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
-    const registroVisita = await this.adicionarVisita.adicionar()
-    return ok(registroVisita)
+    try {
+      const registroVisita = await this.adicionarVisita.adicionar()
+      return ok(registroVisita)
+    } catch (ex) {
+      return serverError()
+    }
   }
 }
