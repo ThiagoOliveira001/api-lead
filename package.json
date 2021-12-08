@@ -4,12 +4,14 @@
   "description": "Criacao de contas e contagem de visitantes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watch",
+    "test:staged": "jest --passWithNoTests"
   },
   "keywords": [],
   "author": "Thiago Silva de Oliveira",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^27.0.3",
     "@types/node": "^16.11.12",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "eslint": "^7.32.0",
@@ -18,6 +20,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
     "git-commit-msg-linter": "^3.2.8",
+    "jest": "^27.4.3",
+    "ts-jest": "^27.1.0",
     "typescript": "^4.5.2"
   }
 }
