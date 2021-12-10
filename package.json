@@ -10,8 +10,7 @@
     "build": "rm -rf dist && tsc -p tsconfig-build.json",
     "prestart": "rm -rf dist && tsc -p tsconfig-build.json",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
-    "pretest:integration": "env NODE_ENV=TEST npx sequelize-cli db:migrate && env NODE_ENV=TEST npx sequelize-cli db:seed:all",
-    "postest:integration": "env NODE_ENV=TEST npx sequelize-cli db:migrate:undo:all"
+    "pretest:integration": "env NODE_ENV=TEST npx sequelize-cli db:migrate:undo:all && env NODE_ENV=TEST npx sequelize-cli db:migrate && env NODE_ENV=TEST npx sequelize-cli db:seed:all"
   },
   "keywords": [],
   "author": "Thiago Silva de Oliveira",
