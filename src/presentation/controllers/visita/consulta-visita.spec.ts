@@ -1,6 +1,5 @@
 import { RegistroVisita } from '../../../domain/models/RegistroVisita'
 import { ConsultarVisita } from '../../../domain/usecases/visita/consulta-visita'
-import { ServerError } from '../../errors/server-error'
 import { ConsultaVisitaController } from './consulta-visita'
 
 interface SutTypes {
@@ -57,6 +56,6 @@ describe('ConsultaVisita Controller', () => {
     }
     const httpResponse = await sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(500)
-    expect(httpResponse.body).toEqual(new ServerError())
+    expect(httpResponse.body).toHaveProperty('message', expect.any(String))
   })
 })

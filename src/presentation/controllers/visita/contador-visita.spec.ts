@@ -1,5 +1,4 @@
 import { RegistroVisita } from '../../../domain/models/RegistroVisita'
-import { ServerError } from '../../errors/server-error'
 import { ContadorVisitaController } from './contador-visita'
 import { AdicionarVisita } from './contador-visita.protocols'
 
@@ -56,6 +55,6 @@ describe('ContadorVisita Controller', () => {
     }
     const httpResponse = await sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(500)
-    expect(httpResponse.body).toEqual(new ServerError())
+    expect(httpResponse.body).toHaveProperty('message', expect.any(String))
   })
 })
