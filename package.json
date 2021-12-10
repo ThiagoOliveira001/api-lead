@@ -46,5 +46,8 @@
     "swagger-jsdoc": "^6.0.0",
     "swagger-ui-express": "^4.2.0",
     "yup": "^0.32.11"
+  },
+  "engines": {
+    "node": "16.13.0"
   }
 }
