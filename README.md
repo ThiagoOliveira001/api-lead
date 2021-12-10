@@ -42,6 +42,5 @@ npm test
 
 ## Iniciando aplicação
 ```sh
-npm run build
 npm start
 ```
