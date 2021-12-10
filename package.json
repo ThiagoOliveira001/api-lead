@@ -44,7 +44,6 @@
     "sequelize": "6.6.5",
     "swagger-jsdoc": "^6.0.0",
     "swagger-ui-express": "^4.2.0",
-    "tsc": "^2.0.3",
     "yup": "^0.32.11",
     "typescript": "^4.5.2"
   },
