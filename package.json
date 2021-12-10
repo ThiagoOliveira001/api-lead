@@ -34,7 +34,8 @@
     "lint-staged": "^12.1.2",
     "sqlite3": "^5.0.2",
     "supertest": "^6.1.6",
-    "ts-jest": "^27.1.0"
+    "ts-jest": "^27.1.0",
+    "typescript": "^4.5.2"
   },
   "dependencies": {
     "@types/validator": "^13.7.0",
@@ -45,8 +46,7 @@
     "sequelize": "6.6.5",
     "swagger-jsdoc": "^6.0.0",
     "swagger-ui-express": "^4.2.0",
-    "yup": "^0.32.11",
-    "typescript": "^4.5.2"
+    "yup": "^0.32.11"
   },
   "engines": {
     "node": "14.0.0"
