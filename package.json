@@ -7,8 +7,7 @@
     "test": "jest --watch",
     "test:staged": "jest --passWithNoTests",
     "start": "node dist/src/main/server.js",
-    "prestart": "rm -rf dist",
-    "postinstall": "tsc -p tsconfig-build.json",
+    "prestart": "rm -rf dist && tsc -p tsconfig-build.json",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
     "pretest:integration": "env NODE_ENV=TEST npx sequelize-cli db:migrate && env NODE_ENV=TEST npx sequelize-cli db:seed:all",
     "postest:integration": "env NODE_ENV=TEST npx sequelize-cli db:migrate:undo:all"
